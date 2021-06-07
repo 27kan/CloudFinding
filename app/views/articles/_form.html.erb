@@ -1,0 +1,10 @@
+    <%= form_with model: article, local: true do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <%= f.file_field :image, id: "article-image" %>
+      <%= f.text_field :title, placeholder: "title", id: "article-title" %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: "select-box", id: "article-category" })%>
+      <%= f.text_area :content, placeholder: "content", rows: "10" , id: "article-content" %>
+      <%= f.submit "SEND" %>
+    <% end %> 
