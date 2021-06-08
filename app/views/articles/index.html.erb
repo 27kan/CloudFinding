@@ -4,9 +4,9 @@
     <div class='list'>
       <div class='item-img-content'>
       <% unless article.image.attached? %>
-        <%= image_tag "cloud.png", class: "item-img" %>
+        <%= link_to (image_tag "cloud.png", class: "item-img"), article_path(article.id) , method: :get%>
       <% else %>
-        <%= link_to (image_tag article.image, class: "item-img" if article.image.attached?) %>
+        <%= link_to (image_tag article.image, class: "item-img" if article.image.attached?), article_path(article.id), method: :get %>
       <% end %>
       </div>
       <div class='item-info'>
