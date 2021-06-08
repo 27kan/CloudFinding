@@ -1,4 +1,26 @@
 
 <div class="contents row">
-  <%= render partial: "article", local: { article: @articles } %>
+  <% @articles.each do |article| %>
+    <div class='list'>
+      <div class='item-img-content'>
+      <% unless article.image.attached? %>
+        <%= image_tag "cloud.png", class: "item-img" %>
+      <% else %>
+        <%= link_to (image_tag article.image, class: "item-img" if article.image.attached?) %>
+      <% end %>
+      </div>
+      <div class='item-info'>
+        <h3 class='item-name'>
+          <%= article.title %>
+        </h3>
+        <div class='item-price'>
+          <span><%= article.category.name %></span>
+          <div class='star-btn'>
+            <%= image_tag "star.png", class:"star-icon" %>
+            <span class='star-count'>0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
