@@ -1,0 +1,14 @@
+<div class="card">
+  <% if article.image.attached? %>
+    <%= link_to (image_tag article.image, class: :card__img ), article_path(article.id) %>
+  <% else %>
+    <%= link_to (image_tag "cloud.png", class: :card__img), article_path(article.id) %>
+  <% end %>
+  <div class="card__body">
+    <%= link_to article.title, article_path(article.id), class: :card__title%>
+    <p class="card__category">
+      <%= article.category.name %>
+    </p>
+    <%= link_to "by #{article.user.nickname}", "#", class: :card__user %>
+  </div>
+</div>
