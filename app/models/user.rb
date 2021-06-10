@@ -9,4 +9,5 @@ class User < ApplicationRecord
               format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Input alphabet & numeral characters. ' }
 
   has_many :articles
+  has_many :comments
 end
