@@ -1,4 +1,6 @@
 <%= form_with model: article, local: true do |f|%>
+<%= render 'shared/error_messages', model: f.object %>
+
   <div class="field">
     <%= f.label :title, "タイトル" %><br />
     <%= f.text_field :title, id:"article_title" %>
