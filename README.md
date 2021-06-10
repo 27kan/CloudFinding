@@ -20,8 +20,8 @@
 | title           | string     | null: false                    |
 | content         | text       | null: false                    |
 | category_id     | integer    | null: false                    |
-| good            | integer    | null: false                    |
-| favorite        | integer    | null: false                    |
+| good            | integer    |                                |
+| favorite        | integer    |                                |
 | user            | references | null: false, foreign_key: true |
 
 ### Association

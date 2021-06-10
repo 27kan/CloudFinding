@@ -1,0 +1,43 @@
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+        <%= @article.title %>
+      </p>
+      <%= link_to "by #{@article.user.nickname}", "#", class: :prototype__user %>
+      <% if user_signed_in?%>
+        <% if @article.user_id == current_user.id %>
+          <div class="prototype__manage">
+            <%= link_to "編集する", edit_article_path(@article.id), class: :prototype__btn %>
+            <%= link_to "削除する", article_path(@article.id), method: :delete, class: :prototype__btn %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="prototype__image">
+        <% if @article.image.attached? %>
+          <%= image_tag @article.image %>
+        <% else %>
+          <%= image_tag "cloud.png" %>
+        <% end %>
+      </div>
+      <div class="prototype__body">
+        <div class="prototype__detail">
+          <p class="detail__title">内容</p>
+          <p class="detail__message">
+            <%= @article.content %>
+          </p>
+        </div>
+        <div class="prototype__detail">
+          <p class="detail__title">カテゴリー</p>
+          <p class="detail__message">
+            <%= @article.category.name %>
+          </p>
+        </div>
+      </div>
+      <div class="prototype__comments">
+        <ul class="comments_lists">
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
