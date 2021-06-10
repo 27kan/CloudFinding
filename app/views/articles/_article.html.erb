@@ -1,6 +1,6 @@
 <div class="card">
   <% if article.image.attached? %>
-    <%= link_to (image_tag article.image, class: :card__img ), article_path(article.id) %>
+    <%= link_to (image_tag article.image,  class: :card__img ), article_path(article.id) %>
   <% else %>
     <%= link_to (image_tag "cloud.png", class: :card__img), article_path(article.id) %>
   <% end %>
