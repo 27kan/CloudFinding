@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @articles = Article.all
+    @articles = Article.includes(:user)
   end
 
   def new
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    @comments = @article.comments
+    @comments = @article.comments.includes(:user).order("created_at DESC")
   end
 
   def edit

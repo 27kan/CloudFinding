@@ -51,6 +51,9 @@
             <li class="comments_list">
               <%= comment.text%>
               <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %>
+              <% if comment.user.id == current_user.id %>
+                <%= link_to "削除する", article_comment_path(comment.article.id, comment.id), method: :delete, class: :prototype__btn %>
+              <% end %>
             </li>
           <% end %>
         </ul>
