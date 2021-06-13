@@ -40,11 +40,16 @@ a {
   background-color: #f1f8fe;
   margin-bottom: 48px;
   padding: 20px 0;
-
 }
 .inner {
   width: 1024px;
   margin: 0 auto;
+}
+.card__field {
+  width: 1024px;
+  height: 100vh;
+  overflow: auto;
+  margin-bottom: 60px;
 }
 .nav {
   width: 100%;
@@ -136,7 +141,6 @@ a {
   justify-content: space-between;
   align-items: center;
   min-height: calc(100vh - 161px);
-  overflow: auto;
 }
 .card {
   width: calc((100% - 50px) / 3);
