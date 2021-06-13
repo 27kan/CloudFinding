@@ -7,8 +7,10 @@
         さん
       </div> 
     <% end %>
-    <div class="card__wrapper">
-      <%= render partial: "article", collection: @articles %>
+    <div class="card__field">
+      <div class="card__wrapper" >
+        <%= render partial: "article", collection: @articles %>
+      </div>
     </div>
   </div>
 </main>
