@@ -9,6 +9,9 @@
     <p class="card__category">
       <%= article.category.name %>
     </p>
-    <%= link_to "by #{article.user.nickname}", "#", class: :card__user %>
+    <p class="card__created">
+      <%= "作成日 #{article.created_at.strftime('%Y/%m/%d')}" %>
+    </p>
+    <%= link_to "by #{article.user.nickname}", user_path(article.user_id), class: :card__user %>
   </div>
 </div>

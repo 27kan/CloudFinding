@@ -13,10 +13,12 @@
         </tbody>
       </table>
       <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのプロトタイプ"%>
+        <%= "#{@user.nickname}さんの投稿"%>
       </h2>
-      <div class="user__card">
-        <%= render partial:"./articles/article", collection: @user.articles %>
+      <div class="card__field">
+        <div class="user__card">
+          <%= render partial:"./articles/article", collection: @user.articles %>
+        </div>
       </div>
     </div>
   </div>

@@ -162,7 +162,13 @@ a {
   font-weight: bold;
 }
 .card__category {
+  color: #999;
   font-size: 16px;
+  margin: 0 20px;
+  text-align: right;
+}
+.card__created {
+  font-size: 12px;
   margin: 0 20px;
   text-align: right;
 }
@@ -228,26 +234,33 @@ a {
   color: #fff;
   background: #999;
 }
-
 .prototype__comments{
   background-color: #f6f6f6;
   padding: 20px;
   margin: 28px 0 40px 0;
 }
-
 .comments_lists{
   padding-left: 20px;
 }
-
 .comments_list{
   list-style-type: square;
   padding-bottom: 5px;
 }
-
 .comment_user{
   font-size: 16px;
   color: #999;
   text-decoration: underline;
+}
+.comment_delete{
+  padding: 0.4em 1.6em;
+  font-size: 0.4em;
+  color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
 }
 
 /* ユーザーページ */
