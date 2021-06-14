@@ -162,7 +162,13 @@ a {
   font-weight: bold;
 }
 .card__category {
+  color: #999;
   font-size: 16px;
+  margin: 0 20px;
+  text-align: right;
+}
+.card__created {
+  font-size: 12px;
   margin: 0 20px;
   text-align: right;
 }
