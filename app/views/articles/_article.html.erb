@@ -13,5 +13,21 @@
       <%= "作成日 #{article.created_at.strftime('%Y/%m/%d')}" %>
     </p>
     <%= link_to "by #{article.user.nickname}", user_path(article.user_id), class: :card__user %>
+  <% if user_signed_in? %>
+    <% if current_user.own?(article) # 所有を確認 %>
+      <%= link_to article_path(article), method: :delete do %>
+        <%= icon 'far', 'trash-alt' # ゴミ箱アイコン %>
+        <%= link_to edit_article_path(article) do %>
+        <%= icon 'far', 'edit' # 編集アイコン %>
+    <% else %>
+      <% if current_user&.like?(article) # すでにいいね！してるか確認 %>
+        <%= link_to like_path(current_user.likes.find_by(article: article)), method: :delete do %>
+        <%= icon 'fa', 'heart' # ハート（黒）%>
+      <% else %>
+        <%= link_to likes_path(article: article), method: :post do %>
+        <%= icon 'far', 'heart' # ハート（白）%>
+      <% end %>
+    <% end %>
+  <% end %>
   </div>
 </div>
