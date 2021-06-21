@@ -11,6 +11,8 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_one_attached :image
+  has_many :likes, dependent: :destroy
+  has_many :users, through: :likes
 
   def was_attached?
     self.image.attached?

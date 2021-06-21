@@ -10,4 +10,22 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :like_articles, through: :likes, source: :article
+
+  def own?(object)
+    id == object.user_id
+  end
+
+  def like(article)
+    likes.find_or_create_by(article: article)
+  end
+
+  def like?(article)
+    like_articles.include?(article)
+  end
+
+  def unlike(article)
+    like_articles.delete(article)
+  end
 end
