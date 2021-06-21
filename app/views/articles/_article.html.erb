@@ -23,9 +23,9 @@
             <% end %>
           <% else id="like-button-#{article.id}" %>
             <% if current_user&.like?(article) %>
-              <%= render 'likes/unlike_button' , article: article %>
+              <%= render partial: 'likes/unlike_button' ,locals: { article: article } %>
             <% else %>
-              <%= render 'likes/like_button' , article: article %>
+              <%= render partial: 'likes/like_button' , locals: { article: article } %>
             <% end %>
           <% end %>
         <% end %>
