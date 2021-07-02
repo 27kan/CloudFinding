@@ -1,3 +1,0 @@
-<%= link_to like_path(current_user.likes.find_by(article: article)), method: :delete, remoto: true do %>
-<span class= "c-icon-button"> <%= icon "fa", "heart", class: 'fa-lg' %><%= article.likes.count %></span>
-<% end %>

@@ -1,3 +1,10 @@
-<%= link_to likes_path(article: article), method: :post, remoto: true do %>
-<span class= "c-icon-button"> <%= icon "far", "heart", class: 'fa-lg' %><%= article.likes.count %></span>
+
+<% if current_user.likes.find_by(article_id: article.id) %>
+  <%= link_to unlike_path(article.id), method: :delete, remote: true do %>
+    <span class= "c-icon-button"> <%= icon "fa", "heart", class: 'fa-lg' %><%= article.likes.count %></span>
+  <% end %>
+<% else %>
+  <%= link_to like_path(article.id), method: :post, remote: true do %>
+    <span class= "c-icon-button"> <%= icon "far", "heart", class: 'fa-lg' %><%= article.likes.count %></span>
+  <% end %>
 <% end %>

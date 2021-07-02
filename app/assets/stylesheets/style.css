@@ -58,6 +58,11 @@ a {
 }
 .logo {
   width: 200px;
+  display: flex;
+}
+.cloud {
+  margin: 5px 0 0 10px;
+  color: #999;
 }
 .nav__btn{
   display: inline-block;
@@ -179,6 +184,10 @@ a {
   padding: 0 20px;
   text-align: right;
   text-decoration: underline;
+}
+.card__icon {
+  text-align: right;
+  margin: 5px 20px 0 0 ;
 }
 
 /* 詳細ページ */

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show 
-  resources :likes, only: [:create, :destroy]
+  
+  post 'like/:article_id', to: 'likes#like', as: 'like'
+  delete 'like/:article_id', to: 'likes#unlike', as: 'unlike'
 end

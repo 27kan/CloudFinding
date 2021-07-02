@@ -12,7 +12,10 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
   has_many :likes, dependent: :destroy
-  has_many :users, through: :likes
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
 
   def was_attached?
     self.image.attached?

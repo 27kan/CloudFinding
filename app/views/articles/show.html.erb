@@ -8,8 +8,12 @@
       <% if user_signed_in?%>
         <% if @article.user_id == current_user.id %>
           <div class="prototype__manage">
-            <%= link_to "編集する", edit_article_path(@article.id), class: :prototype__btn %>
-            <%= link_to "削除する", article_path(@article.id), method: :delete, class: :prototype__btn %>
+            <%= link_to edit_article_path(@article.id), class: :icon do %>
+              <%= icon "far", "edit" ,class: "fa-2x" %>
+            <% end %>
+            <%= link_to article_path(@article.id), method: :delete, class: :icon do %>
+              <%= icon "far", "trash-alt", class: "fa-2x" %>
+            <% end %>
           </div>
         <% end %>
       <% end %>
