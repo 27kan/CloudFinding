@@ -1,3 +1,3 @@
-<%= link_to likes_path(article: article), method: :post, remoto: true do %>
+<%= link_to likes_path(article: article), method: :post, remote: true do %>
 <span class= "c-icon-button"> <%= icon "far", "heart", class: 'fa-lg' %><%= article.likes.count %></span>
 <% end %>

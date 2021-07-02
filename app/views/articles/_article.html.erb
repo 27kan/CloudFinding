@@ -21,12 +21,14 @@
             <%= link_to edit_article_path(article) do %>
             <%= icon("far", "edit") %>
             <% end %>
-          <% else id="like-button-#{article.id}" %>
+          <% else %>
+          <div class="like" id="like-button-<%= article.id%>">
             <% if current_user&.like?(article) %>
-              <%= render partial: 'likes/unlike_button' ,locals: { article: article } %>
+              <%= render 'likes/unlike_button' , article: article %>
             <% else %>
-              <%= render partial: 'likes/like_button' , locals: { article: article } %>
+              <%= render 'likes/like_button' , article: article %>
             <% end %>
+          </div>
           <% end %>
         <% end %>
   </div>
