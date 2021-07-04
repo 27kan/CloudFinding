@@ -13,21 +13,25 @@
       <%= "作成日 #{article.created_at.strftime('%Y/%m/%d')}" %>
     </p>
     <%= link_to "by #{article.user.nickname}", user_path(article.user_id), class: :card__user %>
-        <% if user_signed_in? %>
-          <% if current_user.own?(article) %>
-            <%= link_to article_path(article), method: :delete do %>
-              <%= icon("far", "trash-alt") %>
-            <% end %>
-            <%= link_to edit_article_path(article) do %>
-            <%= icon("far", "edit") %>
-            <% end %>
-          <% else id="like-button-#{article.id}" %>
-            <% if current_user&.like?(article) %>
-              <%= render partial: 'likes/unlike_button' ,locals: { article: article } %>
-            <% else %>
-              <%= render partial: 'likes/like_button' , locals: { article: article } %>
-            <% end %>
+    <div class="card__like">
+      <% if user_signed_in? %>
+        <% if current_user.own?(article) %>
+          <%= link_to article_path(article), method: :delete do %>
+            <%= icon("far", "trash-alt") %>
           <% end %>
+          <%= link_to edit_article_path(article) do %>
+          <%= icon("far", "edit") %>
+          <% end %>
+        <% else %>
+        <div id="like-button-<%= article.id%>" >
+          <% if current_user&.like?(article) %>
+            <%= render 'likes/unlike_button' , article: article %>
+          <% else %>
+            <%= render 'likes/like_button' , article: article %>
+          <% end %>
+        </div>
         <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
