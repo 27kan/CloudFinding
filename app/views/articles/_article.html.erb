@@ -17,10 +17,10 @@
       <% if user_signed_in? %>
         <% if current_user.own?(article) %>
           <%= link_to article_path(article), method: :delete do %>
-            <%= icon("far", "trash-alt") %>
+            <%= icon "far", "trash-alt", class: 'fa-lg' %>
           <% end %>
           <%= link_to edit_article_path(article) do %>
-          <%= icon("far", "edit") %>
+          <%= icon "far", "edit", class: 'fa-lg' %>
           <% end %>
         <% else %>
         <div id="like-button-<%= article.id%>" >
