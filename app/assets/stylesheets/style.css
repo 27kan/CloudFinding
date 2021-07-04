@@ -1,6 +1,7 @@
 /* リセットCSS */
 * {
   box-sizing: border-box;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 html,
@@ -38,7 +39,7 @@ a {
 
 .header {
   background-color: #f1f8fe;
-  margin-bottom: 48px;
+  margin-bottom: 0px;
   padding: 20px 0;
 }
 .inner {
@@ -125,6 +126,20 @@ a {
 
 /* メイン */
 
+.title-contents {
+  width: 1024px;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 20px 10px;
+  background-image: url('top.jpg');
+  background-size: cover;
+}
+.about_title{
+  color: #f1f8fe;
+}
+.index_title{
+  text-align: center;
+}
 .greeting{
   margin-bottom: 20px;
 }
