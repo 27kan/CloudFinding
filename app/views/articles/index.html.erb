@@ -5,7 +5,12 @@
       <h1><a href="#about" class="title_name">CloudFindingとは</a></h1>
     </div>
     <div class="title_about" id="about">
-      <h1><span class="title_name">CloudFindingとは</span></h1>
+      <h1><span class="title_name">CloudFindingとは
+            <%= link_to "#index" do %>
+              <%= icon "fa", "arrow-down", class: 'fa-lg' %>
+            <% end %>
+          </span>
+      </h1>
       <div class="about_body">
         <p><span>クラウドファンディングをしてみたいけど、アイディアがない</span></p>
         <p><span>クラウドファンディングのアイディアはあるけど、リソースがない</span></p>
@@ -17,7 +22,7 @@
 
 <%# 投稿一覧 %>
   <div class="inner">
-    <h1 class="index_title">投稿一覧</h1>
+    <h1 class="index_title" id="index">投稿一覧</h1>
     <% if user_signed_in? %>
       <div class="greeting">
         こんにちは
@@ -27,7 +32,23 @@
     <% end %>
     <div class="card__field">
       <div class="card__wrapper" >
-        <%= render partial: "article", collection: @articles %>
+          <%= render partial: "article", collection: @articles %>
+        <% if @articles.empty? %>
+        <%# 空の場合 サンプルを表示する %>
+          <div class="card">
+            <%= link_to (image_tag "cloud.png", class: :card__img), "#" %>
+            <div class="card__body">
+              <%= link_to "サンプルタイトル", "#", class: :card__title%>
+              <p class="card__category">
+                サンプルカテゴリー
+              </p>
+              <p class="card__created">
+                作成日 2021/04/01
+              </p>
+              <%= link_to "by サンプルユーザー", "#", class: :card__user %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
