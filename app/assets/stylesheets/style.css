@@ -15,7 +15,9 @@ div {
   margin: 0;
   padding: 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
@@ -126,18 +128,60 @@ a {
 
 /* メイン */
 
-.title-contents {
+.title_contents {
   width: 1024px;
-  height: 80vh;
-  margin: 0 auto;
-  padding: 20px 10px;
+  height: 90vh;
+  margin: 5px auto;
+  padding: 30px 40px;
   background-image: url('top.jpg');
   background-size: cover;
 }
-.about_title{
-  color: #f1f8fe;
+.title_name{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  opacity: 0.8;
+  background-color: #87CEFA;
+  border-radius: 9px;
+}
+.title_about{
+  width: 1024px;
+  height: 100vh;
+  margin:5px auto;
+  padding: 30px 40px;
+  background-image: url('top.jpg');
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+/* 背景をぼかす */
+.title_about:before{
+  content: '';
+  background: inherit;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+.about_body span{
+  font-size: 20px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  color: #5989cf;
+  background: #c6e4ff;
+  border-bottom: solid 6px #aac5de;
+  border-radius: 9px;
 }
 .index_title{
+  margin: 20px auto;
   text-align: center;
 }
 .greeting{
